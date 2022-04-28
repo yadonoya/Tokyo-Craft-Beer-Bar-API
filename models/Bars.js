@@ -11,6 +11,20 @@ class Bars {
             return err;
         };
     };
+
+    async createBar(bar_name, station, smoking_allowed) {
+        try {
+            await this.db('Bars')
+                .insert({
+                    bar_name: bar_name,
+                    station: station,
+                    smoking_allowed: smoking_allowed,
+                });
+                return "Bar successfully created"
+        } catch (err){
+            return err;
+        }
+    }
 };
 
 module.exports = new Bars();
