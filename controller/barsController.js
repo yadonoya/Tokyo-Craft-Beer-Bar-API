@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 router.get('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
     const bar = await Bars.findByName(bar_name);
-    res.send(genres[0]).status(200);
+    res.send(bar[0]).status(200);
 })
 
 router.post('/', async (req, res) => {
