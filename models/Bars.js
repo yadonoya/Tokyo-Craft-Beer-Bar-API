@@ -6,7 +6,7 @@ class Bars {
     async findAllBars() {
         try {
             return await this.db('Bars')
-                .select(['bar_name'])
+                .select(['bar_name', 'station', 'smoking_allowed'])
         } catch(err) {
             return err;
         };
