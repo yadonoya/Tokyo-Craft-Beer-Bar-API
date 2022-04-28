@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 router.patch('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
     const edits = req.body;
-    await Bars.updateBar(name, edits);
+    await Bars.updateBar(bar_name, edits);
     res.status(204);
 })
 
