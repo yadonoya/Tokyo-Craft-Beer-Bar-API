@@ -12,6 +12,16 @@ class Bars {
         };
     };
 
+    async findByName(bar_name) {
+        try {
+            return await this.db('Bars')
+                .select()
+                .where('bar_name', bar_name)
+        } catch(err) {
+            return err;
+        }
+    }
+
     async createBar(bar_name, station, smoking_allowed) {
         try {
             await this.db('Bars')
