@@ -19,4 +19,11 @@ router.post('/', async (req, res) => {
     res.status(201).end();
 })
 
+router.patch('/:bar_name', async (req, res) => {
+    const { bar_name } = req.params;
+    const edits = req.body;
+    await Bars.updateBar(name, edits);
+    res.status(204);
+})
+
 module.exports = router;
