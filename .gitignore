@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+# dotenv environment variables file
+.env
+.env.test
 
 
 # Editor directories and files

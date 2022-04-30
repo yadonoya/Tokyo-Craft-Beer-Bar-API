@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Bars = require('../models/Bars');
 
-router.get('/', async (req, res) => {
+router.get('/all_bars', async (req, res) => {
     const allBars = await Bars.findAllBars();
     res.send(allBars).status(200);
 })
@@ -29,7 +29,7 @@ router.get('/all_bars/:station', async (req, res) => {
     res.send(barsByStation).status(200);
 })
 
-router.post('/', async (req, res) => {
+router.post('/all_bars', async (req, res) => {
     const { bar_name, station, smoking_allowed } = req.body;
     const toPost = await Bars.createBar(bar_name, station, smoking_allowed)
     res.send(toPost).status(201);
