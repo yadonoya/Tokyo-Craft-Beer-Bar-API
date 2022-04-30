@@ -4,7 +4,7 @@ const Bars = require('../models/Bars');
 
 router.get('/', async (req, res) => {
     const allBars = await Bars.findAllBars();
-    res.send(allBars);
+    res.send(allBars).status(200);
 })
 
 router.get('/:bar_name', async (req, res) => {
@@ -15,12 +15,18 @@ router.get('/:bar_name', async (req, res) => {
 
 router.get('/all_bars/smoking_allowed', async (req, res) => {
     const allSmokingBars = await Bars.findAllSmokingBars();
-    res.send(allSmokingBars);
+    res.send(allSmokingBars).status(200);
 })
 
 router.get('/all_bars/smoking_not_allowed', async (req, res) => {
     const allNonSmokingBars = await Bars.findAllNonSmokingBars();
-    res.send(allNonSmokingBars);
+    res.send(allNonSmokingBars).status(200);
+})
+
+router.get('/all_bars/:station', async (req, res) => {
+    const { station } = req.params;
+    const barsByStation = await Bars.findBarsByStation(station);
+    res.send(barsByStation).status(200);
 })
 
 router.post('/', async (req, res) => {
