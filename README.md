@@ -8,7 +8,7 @@ This was created during my time as a student at Code Chrysalis.
 
 ### What is this?
 
-Howdy! Tokyo-Craft-Beer-Bar-API is an API that was built to help you find a new local craft beer bar near you! With Japan being relatively new to the craft beer scene, finding a local place to hang out can be quite the challenge if you don't know where to look!
+Howdy! Tokyo-Craft-Beer-Bar-API is an API that was built to help find a new local craft beer bar near you! With Japan being relatively new to the craft beer scene, finding a local place to hang out can be quite the challenge if you don't know where to look!
 
 
 
