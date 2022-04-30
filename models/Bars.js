@@ -39,7 +39,7 @@ class Bars {
                 .where('bar_name', bar_name)
                 .update(edits)
                 .timeout(1500);
-                return `${bar_name} was successfully edited!`
+                return `${bar_name} was successfully edited!`;
         } catch(err) {
             return err;
         };
@@ -53,7 +53,7 @@ class Bars {
                     station: station,
                     smoking_allowed: smoking_allowed,
                 });
-                return "Bar successfully created"
+                return `${bar_name} was successfully created!`;
         } catch (err){
             return err;
         };
@@ -64,7 +64,7 @@ class Bars {
             await this.db('Bars')
             .where('bar_name', bar_name)
             .del();
-            return 'Successfully deleted bar!'
+            return `${bar_name} was successfully deleted!`;
         } catch(err) {
             console.log(err);
             return err;

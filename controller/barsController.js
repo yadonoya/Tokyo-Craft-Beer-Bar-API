@@ -20,21 +20,21 @@ router.get('/all_bars/smoking_allowed', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { bar_name, station, smoking_allowed } = req.body;
-    await Bars.createBar(bar_name, station, smoking_allowed);
-    res.status(201).end();
+    const toPost = await Bars.createBar(bar_name, station, smoking_allowed)
+    res.send(toPost).status(201);
 })
 
 router.patch('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
     const edits = req.body;
-    await Bars.updateBar(bar_name, edits);
-    res.status(204).end();
+    const patched = await Bars.updateBar(bar_name, edits)
+    res.send(patched).status(204);
 })
 
 router.delete('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
-    await Bars.deleteBar(bar_name);
-    res.status(204).end();
+    const toDelete = await Bars.deleteBar(bar_name);
+    res.send(toDelete).status(204).end();
 })
 
 module.exports = router;
