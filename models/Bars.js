@@ -31,7 +31,7 @@ class Bars {
                 return `${bar_name} was successfully edited!`
         } catch(err) {
             return err;
-        }
+        };
     }
 
     async createBar(bar_name, station, smoking_allowed) {
@@ -45,8 +45,20 @@ class Bars {
                 return "Bar successfully created"
         } catch (err){
             return err;
-        }
+        };
     }
+
+    async deleteBar(bar_name) {
+        try {
+            await this.db('Bars')
+            .where('bar_name', bar_name)
+            .del();
+            return 'Successfully deleted bar!'
+        } catch(err) {
+            console.log(err);
+            return err;
+        };
+    };
 };
 
 module.exports = new Bars();
