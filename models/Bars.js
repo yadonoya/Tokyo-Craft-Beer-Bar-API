@@ -22,6 +22,18 @@ class Bars {
         }
     }
 
+    async updateBar(bar_name, edits) {
+        try {
+            await this.db('Bars')
+                .where('bar_name', bar_name)
+                .update(edits)
+                .timeout(1500);
+                return `${bar_name} was successfully edited!`
+        } catch(err) {
+            return err;
+        }
+    }
+
     async createBar(bar_name, station, smoking_allowed) {
         try {
             await this.db('Bars')

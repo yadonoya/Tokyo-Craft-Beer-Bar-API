@@ -19,6 +19,5 @@ exports.down = function(knex) {
     .alterTable('Bars', function (table) {
         table.dropColumn('station');
         table.dropColumn('smoking_allowed');
-
     })
 };

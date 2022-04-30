@@ -23,7 +23,13 @@ router.patch('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
     const edits = req.body;
     await Bars.updateBar(bar_name, edits);
-    res.status(204);
+    res.status(204).end();
+})
+
+router.delete(':bar_name', async (req, res) => {
+    const { bar_name } = req.params;
+    await Bars.delete(bar_name);
+    res.status(204).end();
 })
 
 module.exports = router;
