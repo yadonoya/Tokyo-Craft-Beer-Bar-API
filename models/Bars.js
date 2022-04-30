@@ -22,6 +22,15 @@ class Bars {
         };
     };
 
+    async findAllNonSmokingBars() {
+        try {
+            return await this.db('Bars')
+                .select(['bar_name', 'station', 'smoking_allowed'])
+                .where('smoking_allowed', 'f');
+        } catch(err) {
+            return err;
+        };
+    };
 
     async findByName(bar_name) {
         try {
