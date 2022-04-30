@@ -45,7 +45,7 @@ class Bars {
     async findByName(bar_name) {
         try {
             return await this.db('Bars')
-                .select()
+                .select(['bar_name', 'station', 'smoking_allowed'])
                 .where('bar_name', bar_name)
         } catch(err) {
             return err;
