@@ -12,6 +12,17 @@ class Bars {
         };
     };
 
+    async findAllSmokingBars() {
+        try {
+            return await this.db('Bars')
+                .select(['bar_name', 'station', 'smoking_allowed'])
+                .where('smoking_allowed', 't');
+        } catch(err) {
+            return err;
+        };
+    };
+
+
     async findByName(bar_name) {
         try {
             return await this.db('Bars')

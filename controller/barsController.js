@@ -13,6 +13,11 @@ router.get('/:bar_name', async (req, res) => {
     res.send(bar[0]).status(200);
 })
 
+router.get('/all_bars/smoking_allowed', async (req, res) => {
+    const allSmokingBars = await Bars.findAllSmokingBars();
+    res.send(allSmokingBars);
+})
+
 router.post('/', async (req, res) => {
     const { bar_name, station, smoking_allowed } = req.body;
     await Bars.createBar(bar_name, station, smoking_allowed);
