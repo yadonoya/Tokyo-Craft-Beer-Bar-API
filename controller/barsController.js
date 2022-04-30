@@ -26,9 +26,9 @@ router.patch('/:bar_name', async (req, res) => {
     res.status(204).end();
 })
 
-router.delete(':bar_name', async (req, res) => {
+router.delete('/:bar_name', async (req, res) => {
     const { bar_name } = req.params;
-    await Bars.delete(bar_name);
+    await Bars.deleteBar(bar_name);
     res.status(204).end();
 })
 
